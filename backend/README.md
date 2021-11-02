@@ -6,7 +6,7 @@ _Routes that are **PRIVATE** require a token to use. To get a token, simply perf
 
 _The token will be required to set under the header of_ `x-auth-token: token`
 
-Unless specify otherwise, all routes start in http://localhost:5000/api or https://mymovielistapi.herokuapp.com/api
+Unless specify otherwise, all routes start in http://localhost:5000/api or https://movit-api.herokuapp.com/api
 
 POST request also require an additional header:
 `Content-Type: application/json`
