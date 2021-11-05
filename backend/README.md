@@ -152,8 +152,7 @@ GET /sample_movie_id
 > Get random movie(s)
 
 ```
-GET /random/sample_size
-sample_size must be interger, > 0 and < 4
+GET /random/
 ```
 
 > **PRIVATE** Like a movie
