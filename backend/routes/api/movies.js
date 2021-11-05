@@ -106,11 +106,6 @@ router.put("/:movie_id", auth, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     let movies = await Movie.find().sort({ date: -1 }).select(["-date"]);
-
-    movies.map((movie) => {
-      movie.comments = movie.comments.length;
-    });
-
     return res.status(200).json(movies);
   } catch (err) {
     console.error(err.message);
