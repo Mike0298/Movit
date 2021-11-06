@@ -1,0 +1,22 @@
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0px 100px;
+    margin: 0px 200px;
+    color: #bcbedc;
+    font-size: 14px;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+}
+
+footer {
+    margin-top: 40px;
+    background-color: #0b1622;
+    height: 50px;
+}
