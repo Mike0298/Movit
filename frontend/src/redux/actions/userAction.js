@@ -19,8 +19,9 @@ const setAuthourizationHeader = (token) => {
 export const loginUser = (userData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("https://movit-api.herokuapp.com/api/users/login", userData)
+    .post(/*"https://localhost:5000/api/users/login"*/"https://movit-api.herokuapp.com/api/users/login", userData)
     .then((res) => {
+      console.log("success")
       setAuthourizationHeader(res.data.token);
       dispatch({ type: CLEAR_ERRORS });
       history.push("/");
