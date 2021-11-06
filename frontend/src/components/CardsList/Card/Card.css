@@ -1,0 +1,24 @@
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 185px;
+    height: 265px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #bcbedc;
+}
+
+.card-title:hover {
+    color: #e9e9eb;
+}
