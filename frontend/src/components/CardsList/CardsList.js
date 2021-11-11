@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
-import { render } from "react-dom";
+import React from "react";
 import Card from "./Card/Card";
 import "./CardsList.css";
+
 const CardsList = (props) => {
     const { movies } = props;
-    console.log("CardsList", movies);
+    console.log("CardsList", props);
 
-    return (
-        <>
-            <div className="list">
-                {movies.map((movie, index) => {
-                    return <Card key={index} movie={movie}></Card>;
-                })}
-            </div>
-        </>
-    );
+    const renderMovies = () => {
+        return movies.map((movie, index) => {
+            return <Card key={index} movie={movie}></Card>;
+        });
+    };
+
+    return <div className="list">{renderMovies()}</div>;
 };
 
 export default CardsList;
