@@ -15,6 +15,7 @@ const initialState = {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
+    console.log(action);
     switch (action.type) {
         case LOADING_DATA:
             return {
@@ -31,6 +32,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 movies: [action.payload, ...state.movies],
+                loading: true,
             };
         case ADD_MOVIE:
             return {
