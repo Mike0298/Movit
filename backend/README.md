@@ -102,7 +102,6 @@ Sample:
     "country": "sample country",
     "genres": "genre1,genre2,genre3"
 }
-Only account with admin or moderator type can add a movie
 title, imageUrl, releaseYear, genres are required, other fields are optional
 ```
 
@@ -149,10 +148,10 @@ GET  /genres/sample_genre
 GET /sample_movie_id
 ```
 
-> Get random movie(s)
+> Get random movie
 
 ```
-GET /random/
+GET /get/random
 ```
 
 > **PRIVATE** Like a movie

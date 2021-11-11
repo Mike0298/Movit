@@ -17,12 +17,6 @@ const { dataDict } = require("../../config/config");
 //@access   Private
 
 router.post("/", auth, async (req, res) => {
-  const user = await User.findById(req.user.id);
-  if (user.accountType !== dataDict.admin)
-    return res.status(401).json({
-      error: "Insufficient permission",
-    });
-
   const { title, imageUrl, description, releaseYear, rating, country, genres } =
     req.body;
   //validate req data
@@ -189,11 +183,11 @@ router.get("/genres/:genre", async (req, res) => {
   }
 });
 
-//@route    GET    /api/movies/random/
+//@route    GET    /api/movies/get/random
 //@desc     Get a random movie
 //@access   Public
 
-router.get("/random", async (req, res) => {
+router.get("/get/random", async (req, res) => {
   try {
     const movies = await Movie.aggregate([{ $sample: { size: 1 } }]).select(
       "-date"
