@@ -1,8 +1,8 @@
 import React from "react";
 import Home from "../../pages/Home/Home";
-import SignIn from "../SignIn/SignIn";
-import SignUp from "../SignUp/SignUp";
-import MovieDetail from "../MovieDetail/MovieDetail";
+import SignIn from "../../pages/SignIn/SignIn";
+import SignUp from "../../pages/SignUp/SignUp";
+import MovieDetail from "../../pages/MovieDetail/MovieDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const PageRouter = (props) => {

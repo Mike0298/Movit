@@ -7,7 +7,6 @@ import {
     NavLink,
     Link,
 } from "react-router-dom";
-import MovieDetail from "../../MovieDetail/MovieDetail";
 
 const Card = (props) => {
     const { movie } = props;

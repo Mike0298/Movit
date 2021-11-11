@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Comments from "../../components/Comments/Comments";
 import "./MovieDetail.css";
 import {
     AiOutlineHeart,
@@ -6,7 +7,6 @@ import {
     AiOutlineStar,
     AiFillStar,
 } from "react-icons/ai";
-import Comments from "../Comments/Comments";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 

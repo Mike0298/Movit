@@ -22,7 +22,8 @@
 }
 
 .comments-submit-btn {
-    height: 100%;
+    height: 50px;
+    width: 100%;
     background-color: #7959ec;
 }
 
