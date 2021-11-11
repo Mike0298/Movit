@@ -1,23 +1,36 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import CardsList from "../../components/CardsList/CardsList";
-import { actFetchMovies } from "../../redux/actions/movieAction";
 import "./Home.css";
+import { css } from "@emotion/react";
+import HashLoader from "react-spinners/HashLoader";
 
-const Home = () => {
-    const dispatch = useDispatch();
-    const movies = useSelector((state) => {
-        console.log("state", state.movie);
-        return state.movie.movies;
-    });
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
-    useEffect(() => {
-        dispatch(actFetchMovies());
-    }, [dispatch]);
+const Home = (props) => {
+    console.log("Home", props);
+    const { movies } = props;
 
     return (
         <div className="home">
-            <CardsList movies={movies}></CardsList>
+            {/* {movies.loading && (
+                <HashLoader
+                    css={override}
+                    loading={true}
+                    size={150}
+                    color={"#7959ec"}
+                />
+            )} */}
+            {/* <HashLoader
+                css={override}
+                loading={true}
+                size={150}
+                color={"#7959ec"}
+            /> */}
+
+            <CardsList movies={movies.movies}></CardsList>
         </div>
     );
 };

@@ -53,3 +53,20 @@ li > .link {
 li > .link:hover {
     color: #e9e9eb;
 }
+
+.get-started-btn {
+    padding: 10px 15px;
+    font-size: 20px;
+    border: 1px solid #7959ec;
+    border-radius: 4px;
+}
+
+.get-started-btn:hover {
+    border: 1px solid transparent;
+    background-color: #7959ec;
+    cursor: pointer;
+}
+
+.get-started-btn > .link:hover {
+    color: #e9e9eb;
+}
