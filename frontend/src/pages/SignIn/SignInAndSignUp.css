@@ -3,16 +3,14 @@
     padding: 50px;
     margin: 0 auto;
     border-radius: 10px;
-    background-color: #2b2d42;
+    /* background-color: #2b2d42; bo di trong dep hon */
 }
-
 .form-name {
     font-size: 40px;
     border-bottom: 1px solid #e9e9eb;
     padding-bottom: 20px;
     text-transform: uppercase;
 }
-
 .form > p {
     color: tomato;
 }
@@ -20,6 +18,7 @@
 form > p::before {
     display: inline;
     content: "⚠ ";
+    color: tomato;
 }
 
 .input {
