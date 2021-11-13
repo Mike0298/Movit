@@ -5,7 +5,7 @@ import usePasswordToggle from "../../redux/actions/uiAction";
 import { loginUser } from "../../redux/actions/userAction";
 import { Link } from "react-router-dom";
 const SignIn = () => {
-    const [PasswordInputType, ToggleIcon] = usePasswordToggle()
+    const [PasswordInputType, ToggleIcon] = usePasswordToggle();
     const {
         register,
         handleSubmit,
@@ -39,7 +39,6 @@ const SignIn = () => {
                 />
                 <i>{ToggleIcon}</i>
                 {errors.password && <p>{errors.password.message}</p>}
-                <label>Don't have an account?<Link to="/sign-up" className="link"> Sign up now!</Link></label>
                 <input className="input" type="submit" value="Sign in" />
                 <div>
                     <div

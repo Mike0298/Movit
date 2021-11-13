@@ -4,9 +4,8 @@ import { registerUser } from "../../redux/actions/userAction";
 import "../SignIn/SignInAndSignUp.css";
 import usePasswordToggle from "../../redux/actions/uiAction";
 import { Link } from "react-router-dom";
-import {FaBeer} from "react-icons/fa"
 const SignUp = () => {
-    const [PasswordInputType, ToggleIcon] = usePasswordToggle()
+    const [PasswordInputType, ToggleIcon] = usePasswordToggle();
     const {
         register,
         handleSubmit,
@@ -38,20 +37,24 @@ const SignUp = () => {
                     {...register("email", { required: "This is required" })}
                 />
                 {errors.email && <p>{errors.email.message}</p>}
-                <label>Password
-                <input
-                    className="input"
-                    type={PasswordInputType}
-                    {...register("password", {
-                        required: "This is required",
-                        maxLength: {
-                            value: 100,
-                            message:
-                                "How could someone remember this??(too long)",
-                        },
-                    })}
-                />
-                <i>{ToggleIcon}</i></label>
+                <label>
+                    Password
+                    <input
+                        className="input"
+                        type={PasswordInputType}
+                        {...register("password", {
+                            required: "This is required",
+                            maxLength: {
+                                value: 100,
+                                message:
+                                    "How could someone remember this??(too long)",
+                            },
+                        })}
+                    />
+                    <div>
+                        <i>{ToggleIcon}</i>
+                    </div>
+                </label>
                 {errors.password && <p>{errors.password.message}</p>}
                 <input className="input" type="submit" value="Sign up" />
                 <div>

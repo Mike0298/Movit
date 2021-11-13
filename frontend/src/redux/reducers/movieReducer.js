@@ -6,6 +6,8 @@ import {
     EDIT_MOVIE,
     LOADING_DATA,
     ADD_COMMENT,
+    GET_RANDOM_MOVIE,
+    GET_MOVIES_BY_GENRE,
 } from "../types";
 
 const initialState = {
@@ -34,6 +36,18 @@ export default function (state = initialState, action) {
                 ...state,
                 movies: [action.payload, ...state.movies],
                 loading: true,
+            };
+        case GET_RANDOM_MOVIE:
+            return {
+                ...state,
+                movies: action.payload,
+                loading: false,
+            };
+        case GET_MOVIES_BY_GENRE:
+            return {
+                ...state,
+                movies: action.payload,
+                loading: false,
             };
         case ADD_MOVIE:
             return {

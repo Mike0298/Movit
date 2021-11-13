@@ -3,7 +3,6 @@
     padding: 50px;
     margin: 0 auto;
     border-radius: 10px;
-    /* background-color: #2b2d42; bo di trong dep hon */
 }
 .form-name {
     font-size: 40px;
@@ -59,7 +58,7 @@ input[type="submit"] {
     color: #e9e9eb;
     text-transform: uppercase;
     border: none;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 20px;
     font-size: 16px;
     font-weight: 100;
