@@ -18,8 +18,8 @@ export const actFetchMovies = () => {
 export const actRandomMovie = () => {
     return async (dispatch) => {
         const res = await CallApi("movies/get/random", "GET", null);
-        // dispatch(GetRandomMovie(res.data));
-        console.log(res);
+        dispatch({ type: LOADING_DATA });
+        dispatch(GetRandomMovie(res.data));
     };
 };
 

@@ -39,8 +39,8 @@ export default function (state = initialState, action) {
         case GET_RANDOM_MOVIE:
             return {
                 ...state,
-                movies: [action.payload, ...state.movies],
-                loading: true,
+                movies: action.payload,
+                loading: false,
             };
         case ADD_MOVIE:
             return {

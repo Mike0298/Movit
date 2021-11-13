@@ -15,7 +15,7 @@ const Card = (props) => {
         <div className="card">
             <Link
                 className="card-title"
-                to={"/movies/movie/" + movie._id}
+                to={"/movies/" + movie._id}
                 movie={movie}
             >
                 <img className="card-image" src={movie.imageUrl} alt="" />
