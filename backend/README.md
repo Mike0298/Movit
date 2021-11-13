@@ -28,7 +28,7 @@ Sample
 > Login an user
 
 ```
-GET /login
+POST /login
 Sample
 {
     "email": "sample@email.com",
