@@ -2,9 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../redux/actions/userAction";
 import "../SignIn/SignInAndSignUp.css";
-import { BrowserRouter as Router, NavLink, Link } from "react-router-dom";
-
+import usePasswordToggle from "../../redux/actions/uiAction";
+import { Link } from "react-router-dom";
+import {FaBeer} from "react-icons/fa"
 const SignUp = () => {
+    const [PasswordInputType, ToggleIcon] = usePasswordToggle()
     const {
         register,
         handleSubmit,
@@ -36,9 +38,10 @@ const SignUp = () => {
                     {...register("email", { required: "This is required" })}
                 />
                 {errors.email && <p>{errors.email.message}</p>}
-                <label>Password</label>
+                <label>Password
                 <input
                     className="input"
+                    type={PasswordInputType}
                     {...register("password", {
                         required: "This is required",
                         maxLength: {
@@ -48,6 +51,7 @@ const SignUp = () => {
                         },
                     })}
                 />
+                <i>{ToggleIcon}</i></label>
                 {errors.password && <p>{errors.password.message}</p>}
                 <input className="input" type="submit" value="Sign up" />
                 <div>
