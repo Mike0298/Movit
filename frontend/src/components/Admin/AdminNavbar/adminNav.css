@@ -1,0 +1,19 @@
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.admin-nav-item {
+  font-size: 1.5rem;
+  border: 1px solid #7959ec;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: scale ease 0.75s;
+}
+
+.admin-nav-item:hover {
+  transform: scale(1.1);
+  background-color: #7959ec;
+}

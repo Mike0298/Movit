@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #7959ec;
+  width: 98%;
+}
+
+.row-item {
+  width: 20%;
+  text-align: center;
+  border-right: 1px solid #7959ec;
+  height: 3.5rem;
+  flex-wrap: wrap;
+  padding: 0 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
