@@ -189,9 +189,7 @@ router.get("/genres/:genre", async (req, res) => {
 
 router.get("/get/random", async (req, res) => {
   try {
-    const movies = await Movie.aggregate([{ $sample: { size: 1 } }]).select(
-      "-date"
-    );
+    const movies = await Movie.aggregate([{ $sample: { size: 1 } }]);
     return res.status(200).json({ movies: movies });
   } catch (err) {
     console.error(err.message);
