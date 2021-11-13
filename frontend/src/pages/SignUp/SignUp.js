@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../redux/actions/userAction";
 import "../SignIn/SignInAndSignUp.css";
+import { BrowserRouter as Router, NavLink, Link } from "react-router-dom";
 
 const SignUp = () => {
     const {
@@ -48,10 +49,17 @@ const SignUp = () => {
                     })}
                 />
                 {errors.password && <p>{errors.password.message}</p>}
-                <input className="input" type="submit" value="Sign in" />
-                {/* <p>
-                    Already have an account? <a href="#">Sign in</a>
-                </p> */}
+                <input className="input" type="submit" value="Sign up" />
+                <div>
+                    <div
+                        style={{ margin: "30px auto 0", width: "fit-content" }}
+                    >
+                        Already have an account?{" "}
+                        <Link to="/sign-in" style={{ color: "#7975ec" }}>
+                            Sign in
+                        </Link>
+                    </div>
+                </div>
             </form>
         </div>
     );

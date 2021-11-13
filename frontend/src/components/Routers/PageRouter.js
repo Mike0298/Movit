@@ -18,6 +18,7 @@ const PageRouter = (props) => {
                     component={({ match }) => {
                         return (
                             <MovieDetail
+                                key={match.params.id}
                                 detail={movies.movies.find(
                                     (movie) => movie._id === match.params.id
                                 )}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Comments from "../../components/Comments/Comments";
 import "./MovieDetail.css";
 import {
@@ -7,6 +7,14 @@ import {
     AiOutlineStar,
     AiFillStar,
 } from "react-icons/ai";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink,
+    Link,
+} from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -15,7 +23,6 @@ const MovieDetail = (props) => {
     const [isLiked, setIsLiked] = useState(false);
     const [isRated, setIsRated] = useState(false);
     console.log("MovieDetail", props);
-    console.log("Liked", isLiked);
 
     const handleLikeButton = () => {
         if (!isLiked) {
@@ -27,6 +34,9 @@ const MovieDetail = (props) => {
 
     return (
         <div className="detail-container" key={detail?._id}>
+            <Link to="/" className="detail-back-button">
+                <h3>Back</h3>
+            </Link>
             <div
                 style={{
                     display: "flex",
@@ -83,18 +93,18 @@ const MovieDetail = (props) => {
                     >
                         MOVIE INFO
                     </p>
-                    <p className="detail-country">
+                    <div className="detail-country">
                         <h3>Country:</h3>
                         {detail?.country}
-                    </p>
-                    <p className="detail-year">
+                    </div>
+                    <div className="detail-year">
                         <h3>Release year:</h3>
                         {detail?.releaseYear}
-                    </p>
-                    <p className="detail-description">
+                    </div>
+                    <div className="detail-description">
                         <h3 style={{ fontSize: "30px" }}>Description:</h3>
                         {detail?.description}
-                    </p>
+                    </div>
                 </div>
                 <div className="detail-statics detail-content-item">
                     <div className="detail-likes">
@@ -122,7 +132,6 @@ const MovieDetail = (props) => {
                     {detail?.comments}
                 </div>
             </div>
-            {/* <h1>something</h1> */}
         </div>
     );
 };
