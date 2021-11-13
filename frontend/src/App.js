@@ -5,13 +5,14 @@ import { actFetchMovies } from "./redux/actions/movieAction";
 import Navbar from "./components/NavBar/NavBar";
 import PageRouter from "./components/Routers/PageRouter";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
     const dispatch = useDispatch();
-    const movies = useSelector((state) => {
-        console.log("state", state.movie);
-        return state.movie;
+    const state = useSelector((state) => {
+        console.log("state", state);
+        return state;
     });
 
     useEffect(() => {
@@ -21,8 +22,9 @@ function App() {
     return (
         <div className="container flex-wrapper">
             <Router>
-                <Navbar></Navbar>
-                <PageRouter movies={movies}></PageRouter>
+                <ScrollToTop></ScrollToTop>
+                <Navbar {...state.user}></Navbar>
+                <PageRouter movies={state.movie} user={state.user}></PageRouter>
                 <Footer></Footer>
             </Router>
         </div>

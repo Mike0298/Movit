@@ -13,12 +13,12 @@ const Card = (props) => {
     console.log("Card", props);
     return (
         <div className="card">
-            <img className="card-image" src={movie.imageUrl} alt="" />
             <Link
                 className="card-title"
                 to={"/movies/movie/" + movie._id}
                 movie={movie}
             >
+                <img className="card-image" src={movie.imageUrl} alt="" />
                 {movie.title}
             </Link>
         </div>

@@ -6,6 +6,24 @@
     justify-content: space-between;
 }
 
+.detail-back-button {
+    text-decoration: none;
+    margin-bottom: 15px;
+    background-color: #7959ec;
+    border: none;
+    border-radius: 4px;
+    width: 160px;
+    padding: 10px 20px;
+    display: flex;
+    flex-flow: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.detail-back-button > h3 {
+    margin: auto;
+}
+
 .detail-image {
     width: 200px;
     height: 265px;
@@ -92,7 +110,8 @@
     padding: 5px 10px;
     border-radius: 10px;
     width: fit-content;
-    font-size: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 .detail-comments {

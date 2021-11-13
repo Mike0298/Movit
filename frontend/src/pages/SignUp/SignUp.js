@@ -53,11 +53,17 @@ const SignUp = () => {
                 />
                 <i>{ToggleIcon}</i></label>
                 {errors.password && <p>{errors.password.message}</p>}
-                <label>Have an account?<Link to="/sign-in" className="link"> Sign in</Link></label>
-                <input className="input" type="submit" value="Sign in" />
-                {/* <p>
-                    Already have an account? <a href="#">Sign in</a>
-                </p> */}
+                <input className="input" type="submit" value="Sign up" />
+                <div>
+                    <div
+                        style={{ margin: "30px auto 0", width: "fit-content" }}
+                    >
+                        Already have an account?{" "}
+                        <Link to="/sign-in" style={{ color: "#7975ec" }}>
+                            Sign in
+                        </Link>
+                    </div>
+                </div>
             </form>
         </div>
     );

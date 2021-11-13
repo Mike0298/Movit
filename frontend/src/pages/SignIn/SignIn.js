@@ -41,9 +41,16 @@ const SignIn = () => {
                 {errors.password && <p>{errors.password.message}</p>}
                 <label>Don't have an account?<Link to="/sign-up" className="link"> Sign up now!</Link></label>
                 <input className="input" type="submit" value="Sign in" />
-                {/* <p>
-                    Don't have an account yet? <a href="#">Sign up</a>
-                </p> */}
+                <div>
+                    <div
+                        style={{ margin: "30px auto 0", width: "fit-content" }}
+                    >
+                        Don't have an account yet?{" "}
+                        <Link to="/sign-up" style={{ color: "#7975ec" }}>
+                            Sign up
+                        </Link>
+                    </div>
+                </div>
             </form>
         </div>
     );

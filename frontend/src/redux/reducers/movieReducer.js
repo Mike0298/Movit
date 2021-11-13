@@ -5,6 +5,7 @@ import {
     DELETE_MOVIE,
     EDIT_MOVIE,
     LOADING_DATA,
+    ADD_COMMENT,
 } from "../types";
 
 const initialState = {
@@ -55,6 +56,11 @@ export default function (state = initialState, action) {
             state.movies[indexToEdit] = action.payload;
             return {
                 ...state,
+            };
+        case ADD_COMMENT:
+            return {
+                ...state,
+                movies: {},
             };
         default:
             return state;

@@ -13,6 +13,8 @@ export const GET_MOVIE = "GET_MOVIE";
 export const ADD_MOVIE = "ADD_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
 export const EDIT_MOVIE = "EDIT_MOVIE";
+export const LIKE_MOVIE = "LIKE_MOVIE";
+export const ADD_COMMENT = "ADD_COMMENT";
 
 //User
 export const SET_AUTHENTICATED = "SET_AUTHENTICATED";
