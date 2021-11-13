@@ -5,6 +5,7 @@ import {
     LOADING_DATA,
     ADD_COMMENT,
     GET_RANDOM_MOVIE,
+    GET_MOVIES_BY_GENRE,
 } from "../types";
 
 export const actFetchMovies = () => {
@@ -23,6 +24,16 @@ export const actRandomMovie = () => {
     };
 };
 
+export const actGetMoviesByGenre = (genre) => {
+    if (genre) {
+        return async (dispatch) => {
+            const res = await CallApi(`movies/genres/${genre}`, "GET", null);
+            dispatch({ type: LOADING_DATA });
+            dispatch(GetRandomMovie(res.data));
+        };
+    }
+};
+
 export const actAddComment = (input) => {
     return (dispatch) => {
         dispatch(AddComment(input));
@@ -39,6 +50,13 @@ export const GetMovies = (payload) => {
 export const GetRandomMovie = (payload) => {
     return {
         type: GET_RANDOM_MOVIE,
+        payload,
+    };
+};
+
+export const GetMoviesByGenre = (payload) => {
+    return {
+        type: GET_MOVIES_BY_GENRE,
         payload,
     };
 };

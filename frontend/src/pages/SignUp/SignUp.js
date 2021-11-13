@@ -51,7 +51,9 @@ const SignUp = () => {
                             },
                         })}
                     />
-                    <i>{ToggleIcon}</i>
+                    <div>
+                        <i>{ToggleIcon}</i>
+                    </div>
                 </label>
                 {errors.password && <p>{errors.password.message}</p>}
                 <input className="input" type="submit" value="Sign up" />

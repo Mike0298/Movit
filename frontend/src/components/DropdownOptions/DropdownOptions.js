@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import { useDispatch } from "react-redux";
+import { actGetMoviesByGenre } from "../../redux/actions/movieAction";
 
 const options = [
     { value: "action", label: "Action" },
@@ -68,16 +70,22 @@ const customStyles = {
 };
 
 const DropdownOptions = (props) => {
-    const [selectedOption, setSelectedOption] = useState(null);
+    const dispatch = useDispatch();
     console.log("dropdown", props);
+
+    const handleGenreChoose = (e) => {
+        if (e) {
+            dispatch(actGetMoviesByGenre(e.value));
+        }
+    };
+
     return (
         <div style={{ width: "185px" }}>
             <Select
                 isClearable={true}
                 styles={customStyles}
-                closeMenuOnSelect={false}
-                // defaultValue={selectedOption}
-                onChange={setSelectedOption}
+                closeMenuOnSelect={true}
+                onChange={(e) => handleGenreChoose(e)}
                 options={options}
                 isSearchable
                 placeholder={"Choose a genre"}
