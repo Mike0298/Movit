@@ -14,7 +14,7 @@ const PageRouter = (props) => {
                 <Route path="/sign-up" component={SignUp}></Route>
                 <Route path="/sign-in" component={SignIn}></Route>
                 <Route
-                    path="/movies/movie/:id"
+                    path="/movies/:id"
                     component={({ match }) => {
                         return (
                             <MovieDetail
