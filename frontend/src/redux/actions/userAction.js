@@ -10,30 +10,39 @@ import {
   CLEAR_ERRORS,
   CLEAR_MESSAGES,
 } from "../types";
-
 const setAuthourizationHeader = (token) => {
   localStorage.setItem("x-auth-token", token);
   axios.defaults.headers.common["Authorization"] = token;
 };
-
-export const loginUser = (userData, history) => (dispatch) => {
-  dispatch({ type: LOADING_UI });
+export const registerUser = (userData, history) => {
   axios
-    .post(/*"https://localhost:5000/api/users/login"*/"https://movit-api.herokuapp.com/api/users/login", userData)
+    .post("https://movit-api.herokuapp.com/api/users/register", userData)
     .then((res) => {
-      console.log("success")
+      console.log("sign up success")
       setAuthourizationHeader(res.data.token);
-      dispatch({ type: CLEAR_ERRORS });
       history.push("/");
     })
     .catch((err) => {
-      dispatch({
-        type: SET_ERRORS,
-        payload: err.payload.data,
-      });
+      console.log(err)
+    });
+};
+export const loginUser = (userData, history) =>/* (dispatch) =>*/ {
+  // dispatch({ type: LOADING_UI });
+  axios
+    .post("https://movit-api.herokuapp.com/api/users/login", userData)
+    .then((res) => {
+      console.log("success")
+      console.log(res.data.token)
+      setAuthourizationHeader(res.data.token);
+      /*dispatch({ type: CLEAR_ERRORS });*/
+      history.push("/");
+    })
+    .catch((err) => {
+      console.log(err)
+      // dispatch({
+      //   type: SET_ERRORS,
+      //   payload: err.payload.data,
+      // });
     });
 };
 
-export const registerUser = (userData, history) => (dispatch) => {
-  dispatch({ type: LOADING_UI });
-};

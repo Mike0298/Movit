@@ -10,7 +10,7 @@ import {
 
 const Card = (props) => {
     const { movie } = props;
-    console.log("Card", props);
+    // console.log("Card", props);
     return (
         <div className="card">
             <Link

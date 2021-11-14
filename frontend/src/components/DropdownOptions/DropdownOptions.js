@@ -71,7 +71,7 @@ const customStyles = {
 
 const DropdownOptions = (props) => {
     const dispatch = useDispatch();
-    console.log("dropdown", props);
+    // console.log("dropdown", props);
 
     const handleGenreChoose = (e) => {
         if (e) {

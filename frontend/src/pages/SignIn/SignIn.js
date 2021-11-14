@@ -4,7 +4,9 @@ import "./SignInAndSignUp.css";
 import usePasswordToggle from "../../redux/actions/uiAction";
 import { loginUser } from "../../redux/actions/userAction";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 const SignIn = () => {
+    const history = useHistory();
     const [PasswordInputType, ToggleIcon] = usePasswordToggle();
     const {
         register,
@@ -13,7 +15,7 @@ const SignIn = () => {
     } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        loginUser(data);
+        loginUser(data,history);
     };
     return (
         <div className="form-container">
