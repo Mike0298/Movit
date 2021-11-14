@@ -7,15 +7,17 @@ const AdminMovies = ({ movies }) => {
     <div className="movies-container">
       <div className="title">Movie List</div>
       <table className="movies-table">
-        <tr className="header">
-          <th className="header-item">ID</th>
-          <th className="header-item">Title</th>
-          <th className="header-item">Release Year</th>
-          <th className="header-item">Number of comments</th>
-          <th className="actions header-item">Actions </th>
-        </tr>
+        <tbody>
+          <tr className="header">
+            <th className="header-item">ID</th>
+            <th className="header-item">Title</th>
+            <th className="header-item">Release Year</th>
+            <th className="header-item">Number of comments</th>
+            <th className="actions header-item">Actions </th>
+          </tr>
+        </tbody>
         {movies.map((movie, index) => {
-          return <MovieRow movie={movie} id={index} />;
+          return <MovieRow movie={movie} key={index} />;
         })}
       </table>
     </div>

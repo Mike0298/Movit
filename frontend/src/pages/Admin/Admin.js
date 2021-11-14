@@ -31,7 +31,7 @@ const Admin = () => {
       case 1:
         return <AdminMovies movies={movies} />;
       case 2:
-        return <AdminUsers />;
+        return <AdminUsers users={admin.users} />;
       default:
         return <AdminOverview movies={movies} />;
     }
