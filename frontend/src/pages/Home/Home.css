@@ -1,5 +1,13 @@
-.home {
-    height: 100%;
+.home-container {
+    width: 100vw;
+    overflow: scroll;
+    /* position: fixed; */
+    /* background-color: #13171d;
+    z-index: 10; */
+}
+
+.home-wrapper {
+    height: fit-content;
     padding: 0px 100px;
-    margin: 40px 200px 0px;
+    margin: 30px 200px 20px;
 }

@@ -5,7 +5,7 @@ import "./Footer.css";
 
 const Footer = () => {
     return (
-        <footer>
+        <div className="footer">
             <div className="footer-container">
                 <div>
                     <span>Movit project, Copyright © 2021</span>
@@ -35,7 +35,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-        </footer>
+        </div>
     );
 };
 

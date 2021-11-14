@@ -123,3 +123,8 @@ hr {
     padding: 10px 20px;
     border-radius: 4px;
 }
+
+.form-container {
+    height: fit-content;
+    margin-top: 80px;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Comments from "../../components/Comments/Comments";
 import "./MovieDetail.css";
 import {
@@ -7,7 +7,6 @@ import {
     AiOutlineStar,
     AiFillStar,
 } from "react-icons/ai";
-import { MdKeyboardArrowLeft } from "react-icons/md";
 import {
     BrowserRouter as Router,
     Switch,
@@ -23,14 +22,6 @@ const MovieDetail = (props) => {
     const [isLiked, setIsLiked] = useState(false);
     const [isRated, setIsRated] = useState(false);
     console.log("MovieDetail", props);
-
-    const handleLikeButton = () => {
-        if (!isLiked) {
-            setIsLiked();
-            return detail.likeCounter + 1;
-        }
-        // return setIsLiked(false);
-    };
 
     return (
         <div className="detail-container" key={detail?._id}>
