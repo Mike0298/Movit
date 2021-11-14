@@ -76,34 +76,11 @@ router.post("/", auth, async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    let allUsers = {};
-    allUsers.members = [];
-    allUsers.mods = [];
-    allUsers.admin = [];
+    const profiles = await Profile.find()
+      .sort({ date: -1 })
+      .populate("user", ["name", "avatar", "accountType"]);
 
-    const profiles = await Profile.find().populate("user", [
-      "name",
-      "avatar",
-      "accountType",
-    ]);
-
-    profiles.map((profile) => {
-      switch (profile.user.accountType) {
-        case dataDict.admin:
-          allUsers.admin.push(profile);
-          break;
-        case dataDict.mod:
-          allUsers.mods.push(profile);
-          break;
-        case dataDict.member:
-          dataDict.member.push(profile);
-          break;
-        default:
-          dataDict.member.push(profile);
-      }
-    });
-
-    res.json(allUsers);
+    res.json(profiles);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
