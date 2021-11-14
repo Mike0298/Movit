@@ -16,7 +16,7 @@ const SearchBar = () => {
         );
 
         return movies.filter((movie) =>
-            movie.title.toLowerCase().includes(e.target.value.toLowerCase())
+            movie.title.toLowerCase().includes(value.toLowerCase())
         );
     };
 
