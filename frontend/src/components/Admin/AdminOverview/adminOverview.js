@@ -5,10 +5,6 @@ import "./adminOverview.css";
 const AdminOverview = ({ movies, users }) => {
   console.log(users);
 
-  let count = 0;
-
-  console.log(count);
-
   return (
     <div className="admin-overview">
       <div className="title">Admin Overview</div>
@@ -19,7 +15,7 @@ const AdminOverview = ({ movies, users }) => {
         </div>
         <div className="admin-overview-item">
           <div className="item-title">Number of Users</div>
-          <div className="item-detail">{count}</div>
+          <div className="item-detail">{users.length}</div>
         </div>
       </div>
     </div>
