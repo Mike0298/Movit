@@ -4,6 +4,7 @@ const router = express.Router();
 const Profile = require("../../models/Profile");
 const auth = require("../../util/auth");
 const { validateProfileData } = require("../../util/validation");
+const { dataDict } = require("../../config/config.js");
 
 //@route    GET    /api/profile/me
 //@desc     Get user profile
@@ -75,11 +76,10 @@ router.post("/", auth, async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find().populate("user", [
-      "name",
-      "avatar",
-      "accountType",
-    ]);
+    const profiles = await Profile.find()
+      .sort({ date: -1 })
+      .populate("user", ["name", "avatar", "accountType"]);
+
     res.json(profiles);
   } catch (err) {
     console.error(err.message);

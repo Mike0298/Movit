@@ -13,7 +13,7 @@ const reducers = combineReducers({
     UI: uiReducer,
     user: userReducer,
     movie: movieReducer,
-    admin: adminReducer,
+    adminUI: adminReducer,
 });
 
 const store = createStore(

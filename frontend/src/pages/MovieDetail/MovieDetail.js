@@ -23,6 +23,14 @@ const MovieDetail = (props) => {
     const [isRated, setIsRated] = useState(false);
     console.log("MovieDetail", props);
 
+    const handleLikeButton = () => {
+        if (!isLiked) {
+            setIsLiked();
+            return detail.likeCounter + 1;
+        }
+        // return setIsLiked(false);
+    };
+
     return (
         <div className="detail-container" key={detail?._id}>
             <Link to="/" className="detail-back-button">
