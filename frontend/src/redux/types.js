@@ -26,3 +26,5 @@ export const LOADING_USER = "LOADING_USER";
 
 //Admin
 export const SET_VIEW = "SET_VIEW";
+export const FETCH_USERS = "FETCH_USERS";
+export const ADMIN_LOADING = "ADMIN_LOADING";
