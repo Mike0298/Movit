@@ -1,29 +1,38 @@
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import "./Landing.css";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
+    const handleToBrowseMovies = () => {
+        window.scroll({ top: 880, behavior: "smooth" });
+    };
+
     return (
-        <Carousel
-        // autoPlay={true}
-        // showStatus={false}
-        // showIndicators={false}
-        // infiniteLoop={true}
-        // showThumbs={false}
-        >
+        <div className="landing-container">
             <div>
-                <img src="https://c4.wallpaperflare.com/wallpaper/655/730/561/gamora-rocket-raccoon-groot-drax-the-destroyer-wallpaper-preview.jpg" />
+                <h1 className="landing-title">ADVENTURE AWAITS</h1>
+                <p
+                    className="landing-small-title"
+                    style={{
+                        fontSize: "40px",
+                        fontWeight: "700",
+                    }}
+                >
+                    What are you waiting for?
+                </p>
+                <Link to="/sign-up">
+                    <button className="landing-getStarted-btn landing-btn">
+                        Get Started
+                    </button>
+                </Link>
+                <button
+                    className="landing-toBrowse-btn landing-btn"
+                    onClick={() => handleToBrowseMovies()}
+                >
+                    Browse Movies
+                </button>
             </div>
-            <div>
-                <img src="https://c4.wallpaperflare.com/wallpaper/655/730/561/gamora-rocket-raccoon-groot-drax-the-destroyer-wallpaper-preview.jpg" />
-            </div>
-            <div>
-                <img src="https://c4.wallpaperflare.com/wallpaper/407/504/837/1917-movie-movie-scenes-war-world-war-i-world-war-hd-wallpaper-preview.jpg" />
-            </div>
-            <div>
-                <img src="https://c4.wallpaperflare.com/wallpaper/407/504/837/1917-movie-movie-scenes-war-world-war-i-world-war-hd-wallpaper-preview.jpg" />
-            </div>
-        </Carousel>
+        </div>
     );
 };
 
