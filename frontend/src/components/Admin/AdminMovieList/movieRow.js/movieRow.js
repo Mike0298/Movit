@@ -7,10 +7,12 @@ const MovieRow = ({ movie }) => {
     <tbody>
       <tr>
         <td>{movie._id}</td>
-        <td>{movie.title}</td>
+        <td>
+          <Link to={"/movies/" + movie._id}>{movie.title}</Link>
+        </td>
         <td>{movie.releaseYear}</td>
         <td>{movie.comments.length}</td>
-        <td>Action</td>
+        <td>Delete</td>
       </tr>
     </tbody>
   );

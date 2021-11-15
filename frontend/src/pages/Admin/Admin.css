@@ -11,6 +11,7 @@
 
 .right {
   width: 75%;
+  padding-top: 1rem;
   overflow-y: visible;
   overflow-x: hidden;
 }
