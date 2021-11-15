@@ -1,8 +1,8 @@
 import React from "react";
 import CardsList from "../../components/CardsList/CardsList";
 import "./Home.css";
-import RandomButton from "../../components/RandomButton/RandomButton";
 import Landing from "../../components/Landing/Landing";
+import RandomButton from "../../components/RandomButton/RandomButton";
 import DropdownOptions from "../../components/DropdownOptions/DropdownOptions";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
@@ -13,7 +13,7 @@ const Home = (props) => {
         <div className="home-container">
             <div className="home-wrapper">
                 {/* <RandomButton></RandomButton> */}
-                {/* <Landing></Landing> */}
+                <Landing></Landing>
                 <div
                     style={{
                         display: "flex",
