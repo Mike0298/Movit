@@ -7,6 +7,16 @@ const Footer = () => {
     return (
         <div className="footer">
             <div className="footer-container">
+                <div style={{ width: "400px" }}>
+                    <h3 style={{ marginBottom: "5px" }}>About Us</h3>
+                    <p>
+                        Movit Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequuntur, harum? Nostrum, in sint dolor
+                        commodi quam totam aperiam autem tempora accusantium,
+                        iure ut reprehenderit cum minus ab suscipit temporibus
+                        ipsum.
+                    </p>
+                </div>
                 <div>
                     <span>Movit project, Copyright © 2021</span>
                 </div>
