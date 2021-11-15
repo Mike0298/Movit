@@ -35,7 +35,6 @@
 .landing-toBrowse-btn {
     background-color: #7975ec;
     color: #e9e9eb;
-    margin-left: 15px;
     border: none;
 }
 
@@ -43,6 +42,7 @@
     background-color: transparent;
     color: #7975ec;
     border: 1px solid #7975ec;
+    margin-right: 15px;
 }
 
 .landing-getStarted-btn:hover {

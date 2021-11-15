@@ -13,7 +13,7 @@ const Navbar = (props) => {
 
     useEffect(() => {
         setIsSignedIn(authenticated);
-    }, [isSignedIn]);
+    }, [authenticated]);
 
     const renderNotSignedIn = () => {
         return (
