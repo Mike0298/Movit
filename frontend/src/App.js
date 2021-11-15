@@ -20,7 +20,7 @@ function App() {
     }, [dispatch]);
 
     return (
-        <div className="container flex-wrapper">
+        <div className="container grid-wrapper">
             <Router>
                 <ScrollToTop></ScrollToTop>
                 <Navbar {...state.user}></Navbar>

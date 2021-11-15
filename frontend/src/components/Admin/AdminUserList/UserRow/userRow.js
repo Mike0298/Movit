@@ -9,7 +9,7 @@ const UserRow = ({ user }) => {
         <td>{user.user.name}</td>
         <td>{user.user.accountType}</td>
         <td>{user._id}</td>
-        <td>Action</td>
+        <td>MODify</td>
       </tr>
     </tbody>
   );

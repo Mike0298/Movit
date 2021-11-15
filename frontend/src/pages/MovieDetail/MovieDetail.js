@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Comments from "../../components/Comments/Comments";
 import "./MovieDetail.css";
 import {
@@ -7,7 +7,6 @@ import {
     AiOutlineStar,
     AiFillStar,
 } from "react-icons/ai";
-import { MdKeyboardArrowLeft } from "react-icons/md";
 import {
     BrowserRouter as Router,
     Switch,

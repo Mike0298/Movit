@@ -5,7 +5,7 @@ import "./adminUsers.css";
 const AdminUsers = ({ users }) => {
   return (
     <div className="movies-container">
-      <div className="title">Movie List</div>
+      <div className="title">User List</div>
       <table className="movies-table">
         <tbody>
           <tr className="header">

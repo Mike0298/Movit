@@ -1,5 +1,6 @@
 .nav-wrapper {
     background-color: #2b2d42;
+    max-height: 70px;
 }
 
 .navbar {

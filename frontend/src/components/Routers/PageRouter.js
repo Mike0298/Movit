@@ -7,31 +7,31 @@ import Admin from "../../pages/Admin/Admin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const PageRouter = (props) => {
-  console.log("router", props.movies);
-  const { movies } = props;
-  return (
-    <>
-      <Switch>
-        <Route path="/sign-up" component={SignUp}></Route>
-        <Route path="/sign-in" component={SignIn}></Route>
-        <Route path="/admin" component={Admin} />
-        <Route
-          path="/movies/movie/:id"
-          component={({ match }) => {
-            return (
-              <MovieDetail
-                key={match.params.id}
-                detail={movies.movies.find(
-                  (movie) => movie._id === match.params.id
-                )}
-              />
-            );
-          }}
-        />
-        <Route path="/" component={() => <Home {...props} />}></Route>
-      </Switch>
-    </>
-  );
+    console.log("router", props.movies);
+    const { movies } = props;
+    return (
+        <>
+            <Switch>
+                <Route path="/sign-up" component={SignUp}></Route>
+                <Route path="/sign-in" component={SignIn}></Route>
+                <Route path="/admin" component={Admin} />
+                <Route
+                    path="/movies/:id"
+                    component={({ match }) => {
+                        return (
+                            <MovieDetail
+                                key={match.params.id}
+                                detail={movies.movies.find(
+                                    (movie) => movie._id === match.params.id
+                                )}
+                            />
+                        );
+                    }}
+                />
+                <Route path="/" component={() => <Home {...props} />}></Route>
+            </Switch>
+        </>
+    );
 };
 
 export default PageRouter;

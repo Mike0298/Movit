@@ -18,7 +18,7 @@ const CardsList = (props) => {
 
     useEffect(() => {
         setIsLoading(loading);
-    }, [isLoading]);
+    }, [loading]);
 
     const renderMovies = () => {
         return movies.map((movie, index) => {
@@ -27,22 +27,12 @@ const CardsList = (props) => {
     };
 
     return (
-        <>
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: "28px",
-                }}
-            >
-                <DropdownOptions />
-                <SearchBar />
-            </div>
+        <div style={{ position: "sticky" }}>
             {isLoading && (
                 <HashLoader css={override} size={150} color={"#7959ec"} />
             )}
             {!isLoading && <div className="list">{renderMovies()}</div>}
-        </>
+        </div>
     );
 };
 
