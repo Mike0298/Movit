@@ -8,3 +8,44 @@
     height: 830px;
     margin: 30px 0px 50px;
 }
+
+.landing-container > div {
+    height: 100%;
+    padding: 260px 50px 20px;
+}
+
+.landing-title {
+    font-size: 74px;
+    font-weight: 700;
+    color: #7975ec;
+}
+
+.landing-small-title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.landing-btn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.landing-toBrowse-btn {
+    background-color: #7975ec;
+    color: #e9e9eb;
+    margin-left: 15px;
+    border: none;
+}
+
+.landing-getStarted-btn {
+    background-color: transparent;
+    color: #7975ec;
+    border: 1px solid #7975ec;
+}
+
+.landing-getStarted-btn:hover {
+    background-color: #7975ec;
+    color: #e9e9eb;
+}
