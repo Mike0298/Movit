@@ -21,9 +21,11 @@ const CardsList = (props) => {
     }, [loading]);
 
     const renderMovies = () => {
-        return movies.map((movie, index) => {
-            return <Card key={index} movie={movie}></Card>;
-        });
+        return movies
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map((movie, index) => {
+                return <Card key={index} movie={movie}></Card>;
+            });
     };
 
     return (
