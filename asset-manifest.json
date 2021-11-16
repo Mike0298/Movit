@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Movit/static/css/main.567157ed.chunk.css",
-    "main.js": "/Movit/static/js/main.a93a2552.chunk.js",
-    "main.js.map": "/Movit/static/js/main.a93a2552.chunk.js.map",
+    "main.css": "/Movit/static/css/main.910e9c9a.chunk.css",
+    "main.js": "/Movit/static/js/main.7321f43c.chunk.js",
+    "main.js.map": "/Movit/static/js/main.7321f43c.chunk.js.map",
     "runtime-main.js": "/Movit/static/js/runtime-main.ca4c628d.js",
     "runtime-main.js.map": "/Movit/static/js/runtime-main.ca4c628d.js.map",
     "static/css/2.6c0f60ba.chunk.css": "/Movit/static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.14fcf0fd.chunk.js": "/Movit/static/js/2.14fcf0fd.chunk.js",
-    "static/js/2.14fcf0fd.chunk.js.map": "/Movit/static/js/2.14fcf0fd.chunk.js.map",
+    "static/js/2.816d9fdb.chunk.js": "/Movit/static/js/2.816d9fdb.chunk.js",
+    "static/js/2.816d9fdb.chunk.js.map": "/Movit/static/js/2.816d9fdb.chunk.js.map",
     "index.html": "/Movit/index.html",
     "static/css/2.6c0f60ba.chunk.css.map": "/Movit/static/css/2.6c0f60ba.chunk.css.map",
-    "static/css/main.567157ed.chunk.css.map": "/Movit/static/css/main.567157ed.chunk.css.map",
-    "static/js/2.14fcf0fd.chunk.js.LICENSE.txt": "/Movit/static/js/2.14fcf0fd.chunk.js.LICENSE.txt"
+    "static/css/main.910e9c9a.chunk.css.map": "/Movit/static/css/main.910e9c9a.chunk.css.map",
+    "static/js/2.816d9fdb.chunk.js.LICENSE.txt": "/Movit/static/js/2.816d9fdb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ca4c628d.js",
     "static/css/2.6c0f60ba.chunk.css",
-    "static/js/2.14fcf0fd.chunk.js",
-    "static/css/main.567157ed.chunk.css",
-    "static/js/main.a93a2552.chunk.js"
+    "static/js/2.816d9fdb.chunk.js",
+    "static/css/main.910e9c9a.chunk.css",
+    "static/js/main.7321f43c.chunk.js"
   ]
 }
