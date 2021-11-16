@@ -4,7 +4,9 @@ import { registerUser } from "../../redux/actions/userAction";
 import "../SignIn/SignInAndSignUp.css";
 import usePasswordToggle from "../../redux/actions/uiAction";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 const SignUp = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const {
@@ -12,9 +14,13 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const user = useSelector((state) => {
+    return state.user;
+  });
+
   const onSubmit = (data) => {
-    console.log(data);
-    registerUser(data, history);
+    dispatch(registerUser(data, history));
   };
   return (
     <div className="form-container">
@@ -60,7 +66,7 @@ const SignUp = () => {
           Favourite genres
           <input
             className="input"
-            {...register("password", {
+            {...register("favGenres", {
               required: "This is required",
               maxLength: {
                 value: 100,
@@ -69,7 +75,12 @@ const SignUp = () => {
             })}
           />
         </label>
-        <input className="input" type="submit" value="Sign up" />
+        <input
+          className="input"
+          type="submit"
+          value="Sign up"
+          disabled={user.loading ? true : false}
+        />
         <div>
           <div style={{ margin: "30px auto 0", width: "fit-content" }}>
             Already have an account?{" "}

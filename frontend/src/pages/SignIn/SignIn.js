@@ -5,7 +5,7 @@ import usePasswordToggle from "../../redux/actions/uiAction";
 import { loginUser } from "../../redux/actions/userAction";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,11 @@ const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const user = useSelector((state) => {
+    return state.user;
+  });
+
   const onSubmit = (data) => {
     dispatch(loginUser(data, history));
   };
@@ -43,7 +48,12 @@ const SignIn = () => {
         />
         <i>{ToggleIcon}</i>
         {errors.password && <p>{errors.password.message}</p>}
-        <input className="input" type="submit" value="Sign in" />
+        <input
+          className="input"
+          type="submit"
+          value="Sign in"
+          disabled={user.loading ? true : false}
+        />
         <div>
           <div style={{ margin: "30px auto 0", width: "fit-content" }}>
             Don't have an account yet?{" "}
