@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
   if (country) movieFields.country = country;
   if (genres)
     movieFields.genres = genres.split(",").map((genre) => genre.trim());
-  if (writers)
+  if (writer)
     movieFields.writers = writers.split(",").map((writer) => writer.trim());
   if (stars) movieFields.stars = stars.split(",").map((star) => star.trim());
 
@@ -107,7 +107,7 @@ router.put("/:movie_id", auth, async (req, res) => {
   if (country) movieFields.country = country;
   if (genres)
     movieFields.genres = genres.split(",").map((genre) => genre.trim());
-  if (writers)
+  if (writer)
     movieFields.writers = writers.split(",").map((writer) => writer.trim());
   if (stars) movieFields.stars = stars.split(",").map((star) => star.trim());
 
