@@ -1,3 +1,4 @@
+import axios from "axios";
 import CallApi from "../../apis/CallApi";
 import {
   GET_MOVIES,
@@ -69,9 +70,16 @@ export const AddComment = (payload) => {
   };
 };
 
-export const DeleteMovie = (id) => {
-  return {
-    type: DELETE_MOVIE,
-    payload: id,
-  };
+export const DeleteMovie = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(
+      `https://movit-api.herokuapp.com/api/movies/${id}`
+    );
+    dispatch({
+      type: DELETE_MOVIE,
+      payload: id,
+    });
+  } catch (err) {
+    console.log(err.response.data);
+  }
 };
