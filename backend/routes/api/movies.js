@@ -10,6 +10,8 @@ const {
   validateCommentData,
 } = require("../../util/validation");
 
+const data = require("../../data");
+
 const { dataDict } = require("../../config/config");
 
 //@route    POST    /api/movies/
@@ -17,22 +19,38 @@ const { dataDict } = require("../../config/config");
 //@access   Private
 
 router.post("/", auth, async (req, res) => {
-  const { title, imageUrl, description, releaseYear, rating, country, genres } =
-    req.body;
+  const {
+    title,
+    imageUrl,
+    description,
+    releaseYear,
+    rating,
+    country,
+    genres,
+    director,
+    writers,
+    stars,
+    content,
+  } = req.body;
   //validate req data
-  const movieData = { title, releaseYear, genres, imageUrl };
+  const movieData = { title, releaseYear, genres, imageUrl, director };
   const { valid, errors } = validateNewMovieData(movieData);
   if (!valid) return res.status(400).json(errors);
 
   const movieFields = {};
   if (title) movieFields.title = title;
+  if (director) movieFields.director = director;
   if (imageUrl) movieFields.imageUrl = imageUrl;
   if (description) movieFields.description = description;
+  if (content) movieFields.content = content;
   if (releaseYear) movieFields.releaseYear = releaseYear;
   if (rating) movieFields.rating = rating;
   if (country) movieFields.country = country;
   if (genres)
     movieFields.genres = genres.split(",").map((genre) => genre.trim());
+  if (writers)
+    movieFields.writers = writers.split(",").map((writer) => writer.trim());
+  if (stars) movieFields.stars = stars.split(",").map((star) => star.trim());
 
   try {
     let movie = await Movie.findOne({ title: title, releaseYear: releaseYear });
@@ -60,22 +78,38 @@ router.put("/:movie_id", auth, async (req, res) => {
       error: "Insufficient permission",
     });
 
-  const { title, imageUrl, description, releaseYear, rating, country, genres } =
-    req.body;
+  const {
+    title,
+    imageUrl,
+    description,
+    releaseYear,
+    rating,
+    country,
+    genres,
+    director,
+    writers,
+    stars,
+    content,
+  } = req.body;
   //validate req data
-  const movieData = { title, releaseYear, genres, imageUrl };
+  const movieData = { title, releaseYear, genres, imageUrl, director };
   const { valid, errors } = validateNewMovieData(movieData);
   if (!valid) return res.status(400).json(errors);
 
   const movieFields = {};
   if (title) movieFields.title = title;
+  if (director) movieFields.director = director;
   if (imageUrl) movieFields.imageUrl = imageUrl;
   if (description) movieFields.description = description;
+  if (content) movieFields.content = content;
   if (releaseYear) movieFields.releaseYear = releaseYear;
   if (rating) movieFields.rating = rating;
   if (country) movieFields.country = country;
   if (genres)
     movieFields.genres = genres.split(",").map((genre) => genre.trim());
+  if (writers)
+    movieFields.writers = writers.split(",").map((writer) => writer.trim());
+  if (stars) movieFields.stars = stars.split(",").map((star) => star.trim());
 
   try {
     const movie = await Movie.findByIdAndUpdate(
@@ -348,6 +382,21 @@ router.post("/admin/massupload", auth, async (req, res) => {
       .sort({ date: -1 })
       .select(["-date", "-comments"]);
     return res.status(200).json(movies);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.purge("/admin/massdelete", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (user.accountType !== dataDict.admin)
+      return res.status(401).json({
+        error: "Insufficient permission",
+      });
+    await Movie.deleteMany();
+    res.status(200).json({ msg: "Success" });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
