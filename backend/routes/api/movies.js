@@ -18,7 +18,7 @@ const { dataDict } = require("../../config/config");
 //@desc     Add a movie
 //@access   Private
 
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
   const {
     title,
     imageUrl,
