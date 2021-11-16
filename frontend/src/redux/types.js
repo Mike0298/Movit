@@ -28,3 +28,5 @@ export const LOADING_USER = "LOADING_USER";
 export const SET_VIEW = "SET_VIEW";
 export const FETCH_USERS = "FETCH_USERS";
 export const ADMIN_LOADING = "ADMIN_LOADING";
+export const MOD_IFY = "MOD_IFY";
+export const UNMOD_IFY = "UNMOD_IFY";

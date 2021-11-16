@@ -1,13 +1,20 @@
-import { SET_VIEW, FETCH_USERS, ADMIN_LOADING } from "../types";
+import {
+  SET_VIEW,
+  FETCH_USERS,
+  ADMIN_LOADING,
+  MOD_IFY,
+  UNMOD_IFY,
+} from "../types";
 
 const initialState = {
   currentView: 0,
-  users: {},
+  users: [],
   loading: false,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case SET_VIEW: {
       return {
@@ -28,7 +35,26 @@ export default function (state = initialState, action) {
         loading: true,
       };
     }
-
+    case MOD_IFY: {
+      let index = state.users
+        .map((user) => user._id.toString())
+        .indexOf(action.payload);
+      console.log(index);
+      state.users[index].user.accountType = "moderator";
+      return {
+        ...state,
+      };
+    }
+    case UNMOD_IFY: {
+      let index = state.users
+        .map((user) => user._id.toString())
+        .indexOf(action.payload);
+      console.log(index);
+      state.users[index].user.accountType = "member";
+      return {
+        ...state,
+      };
+    }
     default:
       return state;
   }
