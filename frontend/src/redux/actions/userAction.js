@@ -12,37 +12,60 @@ import {
 } from "../types";
 const setAuthourizationHeader = (token) => {
   localStorage.setItem("x-auth-token", token);
-  axios.defaults.headers.common["Authorization"] = token;
+  axios.defaults.headers.common["x-auth-token"] = token;
 };
-export const registerUser = (userData, history) => {
-  axios
-    .post("https://movit-api.herokuapp.com/api/users/register", userData)
-    .then((res) => {
-      console.log("sign up success")
-      setAuthourizationHeader(res.data.token);
-      history.push("/");
-    })
-    .catch((err) => {
-      console.log(err)
-    });
-};
-export const loginUser = (userData, history) =>/* (dispatch) =>*/ {
-  // dispatch({ type: LOADING_UI });
-  axios
-    .post("https://movit-api.herokuapp.com/api/users/login", userData)
-    .then((res) => {
-      console.log("success")
-      console.log(res.data.token)
-      setAuthourizationHeader(res.data.token);
-      /*dispatch({ type: CLEAR_ERRORS });*/
-      history.push("/");
-    })
-    .catch((err) => {
-      console.log(err)
-      // dispatch({
-      //   type: SET_ERRORS,
-      //   payload: err.payload.data,
-      // });
-    });
+// export const registerUser = (userData, history) => {
+//   axios
+//     .post("https://movit-api.herokuapp.com/api/users/register", userData)
+//     .then((res) => {
+//       console.log("sign up success")
+//       setAuthourizationHeader(res.data.token);
+//       history.push("/");
+//     })
+//     .catch((err) => {
+//       console.log(err)
+//     });
+// };
+
+export const registerUser = (userData, history) => (dispatch) => {
+  console.log(userData);
 };
 
+export const loginUser = (userData, history) => async (dispatch) => {
+  try {
+    dispatch({
+      type: LOADING_USER,
+    });
+    const res = await axios.post(
+      "https://movit-api.herokuapp.com/api/users/login",
+      userData
+    );
+    setAuthourizationHeader(res.data.token);
+    await dispatch(getUserData());
+    dispatch({
+      type: SET_AUTHENTICATED,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getUserData = () => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      "https://movit-api.herokuapp.com/api/profile/me"
+    );
+    dispatch({
+      type: SET_USER,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const logoutUser = () => (dispatch) => {
+  dispatch({
+    type: SET_UNAUTHENTICATED,
+  });
+};
