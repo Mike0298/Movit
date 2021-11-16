@@ -367,8 +367,7 @@ router.post("/admin/massupload", auth, async (req, res) => {
       return res.status(401).json({
         error: "Insufficient permission",
       });
-    const dataToAdd = req.body.data;
-    console.log(dataToAdd);
+    const dataToAdd = data;
     for (let movie of dataToAdd) {
       let x = await Movie.findOne({
         title: movie.title,

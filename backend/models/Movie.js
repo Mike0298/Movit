@@ -38,7 +38,7 @@ const MovieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  writers: {
+  writer: {
     type: [String],
   },
   stars: {
