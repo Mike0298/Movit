@@ -14,6 +14,7 @@ import {
     NavLink,
     Link,
 } from "react-router-dom";
+import { BsArrowRight, BsDot } from "react-icons/bs";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -94,15 +95,35 @@ const MovieDetail = (props) => {
                     </p>
                     <div className="detail-country">
                         <h3>Country:</h3>
-                        {detail?.country}
+                        <BsArrowRight /> {detail?.country || "Loading..."}
                     </div>
                     <div className="detail-year">
                         <h3>Release year:</h3>
-                        {detail?.releaseYear}
+                        <BsArrowRight /> {detail?.releaseYear || "Loading..."}
+                    </div>
+                    <div className="detail-description">
+                        <h3 style={{ fontSize: "30px" }}>Director:</h3>
+                        <BsArrowRight /> {detail?.director || "Loading..."}
+                    </div>
+                    <div className="detail-description">
+                        <h3 style={{ fontSize: "30px" }}>Writer(s):</h3>
+                        <BsArrowRight />{" "}
+                        {detail?.writer.map((person) => person + " 💠 ") ||
+                            "Loading..."}
+                    </div>
+                    <div className="detail-description">
+                        <h3 style={{ fontSize: "30px" }}>Stars:</h3>
+                        <BsArrowRight />{" "}
+                        {detail?.stars.map((person) => person + " 💠 ") ||
+                            "Loading..."}
                     </div>
                     <div className="detail-description">
                         <h3 style={{ fontSize: "30px" }}>Description:</h3>
-                        {detail?.description}
+                        <BsArrowRight /> {detail?.description || "Loading..."}
+                    </div>
+                    <div className="detail-description">
+                        <h3 style={{ fontSize: "30px" }}>Content:</h3>
+                        <BsArrowRight /> {detail?.content || "Loading..."}
                     </div>
                 </div>
                 <div className="detail-statics detail-content-item">
@@ -124,11 +145,16 @@ const MovieDetail = (props) => {
                     </div>
                 </div>
                 <div className=" detail-comments detail-content-item">
-                    <h3 className="bottom-line" style={{ fontSize: "30px" }}>
-                        COMMENTS
-                    </h3>
-                    <Comments />
-                    {detail?.comments}
+                    <div>
+                        <h3
+                            className="bottom-line"
+                            style={{ fontSize: "30px" }}
+                        >
+                            COMMENTS
+                        </h3>
+                        <Comments />
+                        {detail?.comments}
+                    </div>
                 </div>
             </div>
         </div>
