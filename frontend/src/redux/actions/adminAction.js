@@ -1,5 +1,5 @@
 import CallApi from "../../apis/CallApi";
-import axios from "axios";
+import axiosConfig from "../../apis/axiosConfig";
 
 import {
   SET_VIEW,
@@ -31,9 +31,12 @@ export const fetchUser = () => {
 
 export const modUser = (profileId, userId) => async (dispatch) => {
   try {
-    // const res = await axios.put(
-    //   `https://movit-api.herokuapp.com/api/users/${userId}/mod`
-    // );
+    const res = await axiosConfig.put(`users/${userId}/mod`, {
+      headers: {
+        "x-auth-token": localStorage.getItem("x-auth-token"),
+      },
+    });
+    console.log(res.data.headers);
     dispatch({
       type: MOD_IFY,
       payload: profileId,
@@ -45,9 +48,7 @@ export const modUser = (profileId, userId) => async (dispatch) => {
 
 export const unModUser = (profileId, userId) => async (dispatch) => {
   try {
-    // const res = await axios.put(
-    //   `https://movit-api.herokuapp.com/api/users/${userId}/unmod`
-    // );
+    const res = await axiosConfig.put(`users/${userId}/unmod`);
     dispatch({
       type: UNMOD_IFY,
       payload: profileId,
