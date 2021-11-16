@@ -96,6 +96,8 @@ exports.validateNewMovieData = (data) => {
   if (isEmpty(data.genres)) errors.genres = "At least one genre is needed";
   //check imageUrl
   if (isEmpty(data.imageUrl)) errors.imageUrl = "Image URL must not be empty";
+  //check director
+  if (isEmpty(data.director)) errors.director = "A director is requried";
 
   return returnResult(errors);
 };

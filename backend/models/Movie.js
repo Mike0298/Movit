@@ -31,6 +31,19 @@ const MovieSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  content: {
+    type: String,
+  },
+  director: {
+    type: String,
+    required: true,
+  },
+  writers: {
+    type: [String],
+  },
+  stars: {
+    type: [String],
+  },
   comments: [
     {
       user: {
