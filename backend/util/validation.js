@@ -82,7 +82,13 @@ exports.validateNewMovieData = (data) => {
   let errors = {};
 
   if (
-    !isAValidRequest([data.title, data.releaseYear, data.genres, data.imageUrl])
+    !isAValidRequest([
+      data.title,
+      data.releaseYear,
+      data.genres,
+      data.imageUrl,
+      data.director,
+    ])
   ) {
     errors.inValidRequest = "Invalid request, missing required attribute(s)";
     return returnResult(errors);
@@ -96,6 +102,8 @@ exports.validateNewMovieData = (data) => {
   if (isEmpty(data.genres)) errors.genres = "At least one genre is needed";
   //check imageUrl
   if (isEmpty(data.imageUrl)) errors.imageUrl = "Image URL must not be empty";
+  //check director
+  if (isEmpty(data.director)) errors.director = "Image URL must not be empty";
 
   return returnResult(errors);
 };
