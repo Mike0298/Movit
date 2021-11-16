@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, NavLink, Link } from "react-router-dom";
-import {
-    MdOutlineKeyboardArrowDown,
-    MdOutlineKeyboardArrowUp,
-} from "react-icons/md";
+import { AiOutlineLogout } from "react-icons/ai";
+import { logoutUser } from "../../redux/actions/userAction";
+import { useDispatch } from "react-redux";
 import "./NavBar.css";
 
 const Navbar = (props) => {
-    console.log("Navbar", props);
-    const { authenticated } = props;
+    const dispatch = useDispatch();
+    console.log("navbar", props);
+    const { authenticated, userDetails } = props;
     const [isSignedIn, setIsSignedIn] = useState(authenticated);
 
     useEffect(() => {
@@ -28,13 +28,14 @@ const Navbar = (props) => {
             <div className="navbar-user-container">
                 <img
                     className="navbar-user-image"
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                    src={userDetails.user.avatar}
                     alt=""
                 />
-                <MdOutlineKeyboardArrowDown
+                <AiOutlineLogout
                     className="navbar-user-options"
-                    size={25}
-                ></MdOutlineKeyboardArrowDown>
+                    size={24}
+                    onClick={() => dispatch(logoutUser())}
+                ></AiOutlineLogout>
             </div>
         );
     };
@@ -48,7 +49,6 @@ const Navbar = (props) => {
                             <strong>MOVIT</strong>
                         </span>
                     </Link>
-                    {/* <SearchBar/> */}
                     <div className="navbar-item">
                         {isSignedIn && renderSignedIn()}
                         {!isSignedIn && renderNotSignedIn()}

@@ -14,22 +14,24 @@ import {
     NavLink,
     Link,
 } from "react-router-dom";
-import { BsArrowRight, BsDot } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { actLikeMovie, actUnlikeMovie } from "../../redux/actions/movieAction";
+import { useDispatch } from "react-redux";
 
 const MovieDetail = (props) => {
     const { detail } = props;
+    const dispatch = useDispatch();
     const [isLiked, setIsLiked] = useState(false);
     const [isRated, setIsRated] = useState(false);
     console.log("MovieDetail", props);
 
-    const handleLikeButton = () => {
-        if (!isLiked) {
-            setIsLiked();
-            return detail.likeCounter + 1;
-        }
-        // return setIsLiked(false);
+    const handleLikeClick = () => {
+        dispatch(actLikeMovie(detail._id));
+    };
+    const handleUnlikeClick = () => {
+        dispatch(actUnlikeMovie(detail._id));
     };
 
     return (
@@ -68,7 +70,15 @@ const MovieDetail = (props) => {
                             className="like-btn"
                             onClick={() => setIsLiked(!isLiked)}
                         >
-                            {isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
+                            {isLiked ? (
+                                <AiFillHeart
+                                    onClick={() => handleLikeClick()}
+                                />
+                            ) : (
+                                <AiOutlineHeart
+                                    onClick={() => handleUnlikeClick()}
+                                />
+                            )}
                         </button>
                     </div>
                 </div>
